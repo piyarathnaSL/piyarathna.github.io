@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Resume PDF</title>
+    <style>
+        @page {
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 3px solid #3a86ff;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a86ff;
+            margin: 0;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #4361ee;
+            margin: 5px 0 15px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3a86ff;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon {
+            color: #3a86ff;
+            width: 20px;
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3a86ff;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #2a9d8f;
+            margin-bottom: 5px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .tech-tag {
+            background: #e9f2ff;
+            color: #3a86ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3a86ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1000;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <button class="print-button" onclick="printToPDF()">
+        <i class="fas fa-print"></i> Save as PDF
+    </button>
+
+    <div class="header">
+        <h1 class="name">G.R.O.D. PIYARATHNA</h1>
+        <div class="title">Computer Science Student | AI & Web Developer</div>
+    </div>
+
+    <div class="section">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <span>your.email@example.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <span>Colombo, Sri Lanka</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>github.com/yourusername</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                <span>linkedin.com/in/yourusername</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">EDUCATION</h2>
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: 600; color: #333;">Diploma in Computer Science with Artificial Intelligence</div>
+            <div style="color: #666;">National Institute of Business Management (NIBM-KIC)</div>
+            <div style="color: #3a86ff; margin-top: 5px;">
+                <i class="fas fa-calendar"></i> Expected Completion: 2025
+            </div>
+            <ul>
+                <li>Specialization: Artificial Intelligence & Machine Learning</li>
+                <li>Focus: Web Application Development, Data Structures, OOP</li>
+                <li>Key Courses: AI Programming, Database Systems, Web Technologies</li>
+            </ul>
+        </div>
+        <div>
+            <div style="font-weight: 600; color: #333;">Diploma in English</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div style="font-weight: 600; margin-bottom: 10px; color: #2a9d8f;">
+                    <i class="fas fa-laptop-code"></i> Programming
+                </div>
+                <div>C++, Java, JavaScript, Python, Prolog</div>
+            </div>
+            <div class="skill-category">
+                <div style="font-weight: 600; margin-bottom: 10px; color: #2a9d8f;">
+                    <i class="fas fa-globe"></i> Web Development
+                </div>
+                <div>HTML5, CSS3, MySQL, Flask, REST APIs</div>
+            </div>
+            <div class="skill-category">
+                <div style="font-weight: 600; margin-bottom: 10px; color: #2a9d8f;">
+                    <i class="fas fa-cogs"></i> Tools & Technologies
+                </div>
+                <div>Git, R Studio, SWI-Prolog, Particle.js, VS Code</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">PROJECTS</h2>
+
+        <div class="project">
+            <div class="project-title">ParkMate - Smart Parking System</div>
+            <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">OOP</span>
+                <span class="tech-tag">Swing GUI</span>
+            </div>
+            <ul>
+                <li>Desktop application for efficient parking lot management</li>
+                <li>Automated fee calculation based on vehicle duration</li>
+                <li>Real-time display of parked vehicles with GUI interface</li>
+                <li>Input validation and error handling implementation</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Smart Study Planner - AI Web Application</div>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Prolog</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">HTML/CSS/JS</span>
+            </div>
+            <ul>
+                <li>AI-powered study schedule generator using Prolog reasoning</li>
+                <li>Personalized timetables based on subject difficulty and exam dates</li>
+                <li>MySQL database integration for data persistence</li>
+                <li>Responsive web interface for multi-device access</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Interactive Portfolio Website</div>
+            <div class="tech-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Particle.js</span>
+            </div>
+            <ul>
+                <li>Fully responsive design with mobile-first approach</li>
+                <li>Dark/light mode toggle with localStorage persistence</li>
+                <li>Interactive project modals and animated skill bars</li>
+                <li>Dynamic project addition form with validation</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function printToPDF() {
+            // Hide the print button before printing
+            document.querySelector('.print-button').style.display = 'none';
+
+            // Print the page (browser will offer to save as PDF)
+            window.print();
+
+            // Show button again after a delay
+            setTimeout(() => {
+                document.querySelector('.print-button').style.display = 'block';
+            }, 1000);
+        }
+
+        // Instructions
+        alert('Click the "Save as PDF" button in the top-right corner to create your resume PDF.\n\nThen save it as: G.R.O.D._Piyarathna_Resume.pdf\n\nPlace it in your portfolio folder.');
+    </script>
+</body>
+
+</html>
